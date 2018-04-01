@@ -1,0 +1,266 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        .grid-examples .box {
+            width: 100%;
+            height: 12rem;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            color: white;
+            background-color: deeppink;
+            padding: 5px;
+        }
+        .grid-examples .column:nth-child(even) .box {
+            background-color: green;
+        }
+    </style>
+{% endblock %}
+
+{% block sidebar %}
+    <li>
+        <a href="#grid">Grid system</a>
+    </li>
+    <li>
+        <a href="#responsive">Responsive columns</a>
+    </li>
+    <li>
+        <a href="#stretchgrow">Stretch and auto columns</a>
+    </li>
+    <li>
+        <a href="#order">Order columns</a>
+    </li>
+    <li>
+        <a href="#flexbox">Other flexbox classes</a>
+    </li>
+    <li>
+        <a href="#showhide">Show and hide columns</a>
+    </li>
+    <li>
+        <a href="#variables">Grid variables</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+<div class="grid-examples">
+
+<h1 class="c-h1" id="grid">Grid system</h1>
+
+<p class="c-paragraph">The grid system contains the container class, row class and column class. Container classs center the content a defines webpage content width according to breakpoints. Row class is wrapper for columns of grid system.</p>
+<p class="c-paragraph">By default, columns are same width - they will divide the whole row space:</p>
+
+    <div class="row">
+        <div class="column">
+            <div class="box">I am default column!</div>
+        </div>
+        <div class="column">
+            <div class="box">I am default column!</div>
+        </div>
+        <div class="column">
+            <div class="box">I am default column!</div>
+        </div>
+        <div class="column">
+            <div class="box">I am default column!</div>
+        </div>
+    </div>
+
+    <pre>
+        <code>
+&lt;div class="row"&gt;
+    &lt;div class="column"&gt;
+        &lt;div class="box"&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="column"&gt;
+        &lt;div class="box"&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="column"&gt;
+        &lt;div class="box"&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="column"&gt;
+        &lt;div class="box"&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+    </pre>
+
+    <h2 class="c-h2" id="responsive">Responsive columns with size classes</h2>
+
+    <p class="c-paragraph">
+        For every column the size responsive classes. The form of this classes is {breakpoint}-{columns}. The class defines how many columns of all columns (by default grid has 12 columns) is column taking and from what breakpoint (breakpoints are mobile-first).
+        Columns below should have 100% width below 1024px resolution, between 1024px and 1319px 50% width and above 1319px resolution it should have 1/3 of row width.
+    </p>
+
+    <div class="row">
+        <div class="column xs-12 md-6 xl-4">
+            <div class="box">I am responsive column!</div>
+        </div>
+        <div class="column xs-12 md-6 xl-4">
+            <div class="box">I am responsive column!</div>
+        </div>
+        <div class="column xs-12 md-6 xl-4">
+            <div class="box">I am responsive column!</div>
+        </div>
+    </div>
+
+    <pre>
+        <code>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column xs-12 md-6 xl-4&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am responsive column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column xs-12 md-6 xl-4&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am responsive column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column xs-12 md-6 xl-4&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am responsive column!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+    </pre>
+
+    <h2 class="c-h2" id="stretchgrow">Stretch and auto columns</h2>
+
+    <p class="c-paragraph">To columns the stretch and grow classes can be added. Columns with stretch classes only take the space it needs, auto columns will fill up the remaining space (which is default behaviour of columns even without other classes). These classes are also orienting by breakpoints.</p>
+
+    <div class="row">
+        <div class="column xs-stretch">
+            <div class="box">I am stretch column!</div>
+        </div>
+        <div class="column xs-grow">
+            <div class="box">I am default column!</div>
+        </div>
+    </div>
+
+    <pre>
+        <code>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column xs-stretch&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am stretch column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column xs-grow&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+    </pre>
+
+    <h2 class="c-h2" id="order">
+        Order classes
+    </h2>
+
+    <p class="c-paragraph">With order classes, column can be forced to be first or last in order. These classes are also orienting by breakpoints. </p>
+
+    <div class="row">
+        <div class="column">
+            <div class="box">I am default column!</div>
+        </div>
+        <div class="column lg-orderFirst">
+            <div class="box">I should be first on bigscreen even thought I am last in HTML!</div>
+        </div>
+    </div>
+
+    <pre>
+        <code>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am default column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column lg-orderFirst&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I should be first on bigscreen even thought I am last in HTML!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+    </pre>
+
+    <h2 class="c-h2" id="flexbox">Other flexbox classes</h2>
+
+    <p class="c-paragraph">Rows can also have classes setting flexbox propetiers like justify-content, flex-wrap, align-items and align-content. For each of columns can be added classes which is defining the align-self property.</p>
+
+    <div class="row xs-justifyCenter xs-itemsEnd">
+        <div class="column xs-3">
+            <div class="box">I am column!</div>
+        </div>
+        <div class="column xs-3">
+            <div class="box" style="height: 80px">I am column!</div>
+        </div>
+        <div class="column xs-3 xs-selfCenter">
+            <div class="box" style="height: 80px">I am column!</div>
+        </div>
+    </div>
+
+<pre>
+    <code>
+&lt;div class=&quot;row xs-justifyCenter xs-itemsEnd&quot;&gt;
+    &lt;div class=&quot;column xs-3&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column xs-3&quot;&gt;
+        &lt;div class=&quot;box&quot; style=&quot;height: 80px&quot;&gt;I am column!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column xs-3 xs-selfCenter&quot;&gt;
+        &lt;div class=&quot;box&quot; style=&quot;height: 80px&quot;&gt;I am column!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+</pre>
+
+    <h2 class="c-h2" id="showhide">Hide and show classes</h2>
+
+    <p class="c-paragraph">Hide and show classes can be used when you want hide or show some elements on certain resolutions.</p>
+
+    <div class="row">
+        <div class="column lg-hide">
+            <div class="box">I am hidden on bigscreen!</div>
+        </div>
+        <div class="column lg-hide">
+            <div class="box">I am hidden on bigscreen!</div>
+        </div>
+        <div class="column lg-hide">
+            <div class="box">I am hidden on bigscreen!</div>
+        </div>
+        <div class="column">
+            <div class="box">I am always visible!</div>
+        </div>
+    </div>
+
+<pre>
+    <code>
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;column lg-hide&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am hidden on bigscreen!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column lg-hide&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am hidden on bigscreen!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column lg-hide&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am hidden on bigscreen!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;column&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;I am always visible!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+</pre>
+
+    <h2 class="c-h2" id="variables">Variables which can be changed</h2>
+
+    <pre>
+        <code>
+//GRID SETTINGS
+$parts: "columns", "orders", "align-self", "directions", "wraps", "justify", "items", "content", "hide";
+$columns: 12;
+$columnsSpace: 3rem;
+//breakpoints in em (Breakpoint * font size = breakpoint in pixels)
+$screen-xs: 30em;
+$screen-sm: 48em;
+$screen-md: 64em;
+$screen-lg: 75em;
+$screen-xl: 82.5em;
+        </code>
+    </pre>
+
+</div>
+
+{% endblock %}

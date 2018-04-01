@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+{% block sidebar %}
+    <li>
+        <a href="#skaris">Skar.IS</a>
+    </li>
+    <li>
+        <a href="#download">Download</a>
+    </li>
+    <li>
+        <a href="#basic-template">Basic template</a>
+    </li>
+    <li>
+        <a href="#structure">Structure</a>
+    </li>
+    <li>
+        <a href="#browsers">Browser support</a>
+    </li>
+    <li>
+        <a href="#responsive-breakpoints">Responsive breakpoints</a>
+    </li>
+    <li>
+        <a href="#functions">Functions</a>
+    </li>
+    <li>
+        <a href="#mixins">Mixins</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="c-h1" id="skaris">Skar.IS - CSS library improving the development of websites graphical interface</h1>
+    <p class="c-paragraph">This is a documentation for Skar.IS CSS library. There are two ways to get the library:</p>
+
+    <h2 class="c-h2" id="download">1. Download it from <a href="https://github.com/skaryys/skar-is/tree/master/dist" target="_blank" class="h-linkNoneHover">repository</a>.</h2>
+    <h2 class="c-h2">2. Use Yarn or NPM</h2>
+
+    <pre>
+        <code>
+yarn add skar-is
+npm install skar-is
+        </code>
+    </pre>
+
+    <h2 class="c-h2" id="basic-template">Basic template to use Skar.IS</h2>
+
+    <p class="c-paragraph">Skar.IS need certain meta tags and optionally <a href="http://jquery.com/" target="_blank" class="h-linkNoneHover">jQuery</a>. Here is example of starter template, where all needed tags are shown:</p>
+
+        <pre>
+            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+
+        &lt;!-- recommended meta tags --&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"&gt;
+
+        &lt;!-- skar-is CSS --&gt;
+        &lt;link rel="stylesheet" href="main.css"&gt;
+        &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;!-- webpage content here --&gt;
+
+        &lt;!-- jQuery and skar-is JS--&gt;
+        &lt;script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"&gt;&lt;/script&gt;
+        &lt;script src="main.js"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+    <h2 class="c-h2" id="structure">Structure</h2>
+
+    <p class="c-paragraph">Skar.IS is written is SASS (SCSS syntax). The main file, which is including all other files, looks like this:</p>
+
+    <pre>
+        <code>
+//MANDATORY PARTS
+@import "settings";
+@import "base/functions";
+@import "base/mixins";
+@import "base/resets";
+
+//GRID
+@import "grid/grid";
+
+//COMPONENTS CLASSES
+@import "components/texts";
+@import "components/media";
+@import "components/card";
+@import "components/menu";
+@import "components/carousel";
+@import "components/footer";
+@import "components/vizuals";
+@import "components/forms";
+@import "components/breadcrumbs";
+@import "components/pagination";
+@import "components/progress";
+@import "components/modal";
+@import "components/tabs";
+
+//HELPER CLASSES
+@import "helpers/display";
+@import "helpers/float";
+@import "helpers/links";
+@import "helpers/positions";
+@import "helpers/text";
+        </code>
+    </pre>
+
+<p class="c-paragraph">The only mandatory parts are settings, functions, mixins and resets. Mixins and functions are used in all other parts of library. Resets part is reseting and defining styles of problematic HTML tags and whole page.
+In settings file are all variables, which can be changed as you want.</p>
+    <p class="c-paragraph">
+        All other parts - grid, component files and helper classes are not mandatory. Use what you need or what you want to use.
+    </p>
+    <p class="c-paragraph">Some of components also need its jQuery file to work. Every component has its .js file.</p>
+
+<h2 class="c-h2" id="browsers">Browser support</h2>
+
+    <p class="c-paragraph">Skar.IS is currently supporting these browsers:</p>
+
+    <ul class="c-list">
+        <li>Internet Explorer 11</li>
+        <li>Edge 16+</li>
+        <li>Mozilla Firefox 57+</li>
+        <li>Chrome 49+</li>
+        <li>Safari 11+</li>
+        <li>iOS Safari 10.2+</li>
+        <li>Opera Mini</li>
+        <li>Android Browser 4.4+</li>
+        <li>Chrome for Android 64+</li>
+        <li>UC Browser for Android 11.8+</li>
+        <li>Samsung Internet 4+</li>
+    </ul>
+
+    <p class="c-paragraph">Some of functionalities dont work on every browser listed above, but you can find more info in other sections of this documentation.</p>
+
+<h2 class="c-h2" id="responsive-breakpoints">Responsive breakpoints</h2>
+
+    <p class="c-paragraph">Grid system of Skar.IS and some components use responsive mobile-first breakpoints. By default there are 5 breakpoints:</p>
+
+    <ol class="c-list">
+        <li>30em ~ 480px</li>
+        <li>48em ~ 768px</li>
+        <li>64em ~ 1024px</li>
+        <li>75em ~ 1200px</li>
+        <li>82.5em ~ 1320px</li>
+    </ol>
+
+<h2 class="c-h2" id="functions">List of functions</h2>
+
+    <ul class="c-list">
+        <li><strong>strip-unit</strong> - delete unit from value</li>
+        <li><strong>convert</strong> - converts em to rem in breakpoints definition</li>
+        <li><strong>str-replace</strong> - string replace function</li>
+        <li><strong>to-string</strong> - converts value to string</li>
+    </ul>
+
+<h2 class="c-h2" id="mixins">List of mixins</h2>
+
+    <ul class="c-list">
+        <li><strong>break</strong> - auto make min-width media query from value</li>
+        <li><strong>rowInit</strong> - includes styles defining the row grid class</li>
+        <li><strong>gridInit</strong> - creates grid columns and rows classes</li>
+        <li><strong>calc</strong> - simplify the calc function notation</li>
+        <li><strong>disableDefaults</strong> - reseting some form elements styles</li>
+        <li><strong>ie</strong> - applies styles only for Internet Explorer browser</li>
+        <li><strong>edge</strong> - applies styles only for Edge browser</li>
+    </ul>
+
+{% endblock %}

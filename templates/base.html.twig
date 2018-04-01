@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <link rel="stylesheet" href="{{ asset("build/main.css") }}">
+
+        <link href="{{ asset("favicon.ico") }}" rel="icon" type="image/png">
+
+        <title>skar-is | {% block title %}CSS library improving the development of websites graphical interface{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        <header class="c-menu horizontal h-positionFixed" data-menu="menu-1">
+
+            <div class="container wrapper">
+
+                <a class="logo" href="{{ path("homepage") }}">
+                    <img src="{{ asset("img/logo.png") }}" alt="Logo skar-is" width="127" height="30"/>
+                </a>
+
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="{{ path("homepage") }}" {% if app.request.get('_route') == 'homepage' %} class="active"{% endif %}>Basics</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("grid") }}" {% if app.request.get('_route') == 'grid' %} class="active"{% endif %}>Grid</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("helpers") }}" {% if app.request.get('_route') == 'helpers' %} class="active"{% endif %}>Helpers</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("components") }}" {% if app.request.get('_route') == 'components' %} class="active"{% endif %}>Components</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("examples") }}" {% if app.request.get('_route') == 'examples' %} class="active"{% endif %}>Examples</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="hamburger js-menu" data-start-menu="menu-1">
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="container content-container">
+            <div class="row">
+                <div class="column lg-3 xs-hide lg-show">
+                    <header class="c-menu vertical sidebar-menu">
+                        <nav class="nav">
+                            <ul class="nav-list">
+                                {% block sidebar %}{% endblock %}
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
+                <div class="column xs-12 lg-9">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="{{ asset("build/main.js") }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

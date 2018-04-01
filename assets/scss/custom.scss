@@ -1,0 +1,42 @@
+.content-container {
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  .code {
+    background-color: #F7F7F9;
+    border-radius: .5rem;
+    margin: .5rem;
+    position: relative;
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      code {
+        font-family: Courier, 'New Courier', monospace;
+        font-size: 1.3rem;
+      }
+    }
+    .c-button {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+    }
+  }
+  @include break($screen-md) {
+    padding-top: 12rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.sidebar-menu {
+  z-index: 0;
+  position: sticky;
+  top: 10rem;
+  background-color: white;
+  box-shadow: 0 .5rem 1rem 0 hsla(0,0%,47%,.3);
+  overflow: auto;
+  max-height: calc(100vh - 10rem) !important;
+  .nav-list {
+    li {
+      color: black;
+    }
+  }
+}
