@@ -308,26 +308,32 @@ $footerBreakpoint: 80000000rem;
 
     <h2 class="c-h2" id="forms"><p class="c-paragraph">Inputs components can look a bit different on each browser.</p>Forms components</h2>
 
-    <p class="c-paragraph">Forms components includes input/textarea/select component, range input component, svg radio/checkbox component and button component.</p>
+    <p class="c-paragraph">Forms components includes input/textarea/select component, label component, error component, range input component, svg radio/checkbox component and button component. The validation of forms is not part of library.</p>
 
     <p class="c-paragraph">Inputs components can look a bit different on each browser.</p>
 
     <p class="c-paragraph">
-        <input type="text" class="c-input"/>
+        <label for="textinput" class="c-label">Invalid text input:</label>
+        <input type="text" id="textinput" class="c-input error"/>
+        <div class="c-formError">Field above should be filled</div>
     </p>
     <p class="c-paragraph">
-        <textarea class="c-input"></textarea>
+        <label for="textarea" class="c-label">Textarea:</label>
+        <textarea class="c-input" id="textarea"></textarea>
     </p>
     <p class="c-paragraph">
-        <select class="c-input">
+        <label for="select" class="c-label">Select:</label>
+        <select class="c-input" id="select">
             <option>Option</option>
             <option>Option</option>
         </select>
     </p>
     <p class="c-paragraph">
-        <input type="range" class="c-rangeInput"/>
+        <label for="range" class="c-label">Range input:</label>
+        <input type="range" class="c-rangeInput" id="range"/>
     </p>
     <p class="c-paragraph">
+        <label for="testradio" class="c-label">Radio inputs:</label>
     <div class="c-svgInput">
         <input type="radio" name="test" value="First radio input" id="test-radio" checked/>
         <label for="test-radio">
@@ -346,6 +352,7 @@ $footerBreakpoint: 80000000rem;
     </div>
     </p>
     <p class="c-paragraph">
+        <label for="testradio" class="c-label">Checkbox input:</label>
     <div class="c-svgInput">
         <input type="checkbox" id="test-checkbox">
         <label for="test-checkbox">
@@ -363,21 +370,27 @@ $footerBreakpoint: 80000000rem;
     <pre>
         <code>
     &lt;p class=&quot;c-paragraph&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;c-input&quot;/&gt;
+        &lt;label for=&quot;textinput&quot; class=&quot;c-label&quot;&gt;Invalid text input:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;textinput&quot; class=&quot;c-input error&quot;/&gt;
+        &lt;div class=&quot;c-formError&quot;&gt;Field above should be filled&lt;/div&gt;
     &lt;/p&gt;
     &lt;p class=&quot;c-paragraph&quot;&gt;
-        &lt;textarea class=&quot;c-input&quot;&gt;&lt;/textarea&gt;
+        &lt;label for=&quot;textarea&quot; class=&quot;c-label&quot;&gt;Textarea:&lt;/label&gt;
+        &lt;textarea class=&quot;c-input&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
     &lt;/p&gt;
     &lt;p class=&quot;c-paragraph&quot;&gt;
-        &lt;select class=&quot;c-input&quot;&gt;
+        &lt;label for=&quot;select&quot; class=&quot;c-label&quot;&gt;Select:&lt;/label&gt;
+        &lt;select class=&quot;c-input&quot; id=&quot;select&quot;&gt;
             &lt;option&gt;Option&lt;/option&gt;
             &lt;option&gt;Option&lt;/option&gt;
         &lt;/select&gt;
     &lt;/p&gt;
     &lt;p class=&quot;c-paragraph&quot;&gt;
-        &lt;input type=&quot;range&quot; class=&quot;c-rangeInput&quot;/&gt;
+        &lt;label for=&quot;range&quot; class=&quot;c-label&quot;&gt;Range input:&lt;/label&gt;
+        &lt;input type=&quot;range&quot; class=&quot;c-rangeInput&quot; id=&quot;range&quot;/&gt;
     &lt;/p&gt;
     &lt;p class=&quot;c-paragraph&quot;&gt;
+        &lt;label for=&quot;testradio&quot; class=&quot;c-label&quot;&gt;Radio inputs:&lt;/label&gt;
     &lt;div class=&quot;c-svgInput&quot;&gt;
         &lt;input type=&quot;radio&quot; name=&quot;test&quot; value=&quot;First radio input&quot; id=&quot;test-radio&quot; checked/&gt;
         &lt;label for=&quot;test-radio&quot;&gt;
@@ -396,12 +409,13 @@ $footerBreakpoint: 80000000rem;
     &lt;/div&gt;
     &lt;/p&gt;
     &lt;p class=&quot;c-paragraph&quot;&gt;
+        &lt;label for=&quot;testradio&quot; class=&quot;c-label&quot;&gt;Checkbox input:&lt;/label&gt;
     &lt;div class=&quot;c-svgInput&quot;&gt;
         &lt;input type=&quot;checkbox&quot; id=&quot;test-checkbox&quot;&gt;
         &lt;label for=&quot;test-checkbox&quot;&gt;
             &lt;svg overflow=&quot;scroll&quot; baseProfile=&quot;tiny&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 10.001 7.993&quot; xml:space=&quot;preserve&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
                         &lt;path d=&quot;M8.428,0L3.936,4.7L1.574,2.229L0,3.875L3.149,7.17l0.787,0.824l6.066-6.347L8.428,0z&quot; fill-rule=&quot;evenodd&quot;&gt;&lt;/path&gt;
-            &lt;/svg&gt;
+                    &lt;/svg&gt;
         &lt;/label&gt;
     &lt;/div&gt;
     &lt;/p&gt;
